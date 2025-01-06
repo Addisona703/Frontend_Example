@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body 
+{
+    display: flex;  /* 控制元素在主轴和交叉轴的对齐方式 */
+    justify-content: center; /* x轴上的对齐方式*/
+    align-items: center; /* y轴上的对齐方式*/
+    min-height: 100vh; /* 设置视口高度 */
+    background: #607d8b;
+}
+.tab 
+{
+    position: relative; /* 相对定位 */
+    padding: 30px 0;
+    background: #fff;
+    display: flex; /* 使子元素按照水平排列，默认为垂直排列 */
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+}
+.tab li 
+{
+    list-style: none; /* 去掉默认的列表符号 */
+    text-align: center;
+    display: block;/* 块级元素占据整行，配合flex，可以实现水平居中 */
+}
+.tab li:not(:last-child)
+{
+    border-right: 1px solid rgba(0, 0, 0, 0.2); /* 分隔线 */
+}
+.tab li a 
+{
+    text-decoration: none;
+    padding: 0 40px;
+    display: block;
+}
+
+.tab li a .icon
+{
+    min-width: 60px;
+    height: 40px;
+    text-align: center;
+    margin: 0 auto 10px; /* 左右边距自动计算，居中操作，下边距10px */
+    overflow: hidden;
+}
+.tab li a .icon i
+{
+    width: 100%;
+    height: 100%;
+    line-height: 40px; /* 垂直居中，如果宽高和父元素相等就会自动居中 */
+    font-size: 2em; /* 图标变大 */
+    transition: 0.5s; /* 过渡效果 */
+    -webkit-text-stroke: 2px #222; /* 添加黑色描边，-webkit-为了支持浏览器引擎 */
+    color: transparent; /* 去除填充色，实现透明效果 */
+}
+.tab li a .icon i:last-child 
+{
+    color: #2196f3;
+    -webkit-text-stroke: 0px #222;
+    transform: translateY(-200%);
+}
+/* 对于偏移量，是指自己本身的高度的百分比 */
+.tab li a:hover i 
+{
+    transform: translateY(100%);
+}
+.tab li a:hover i:last-child 
+{
+    transform: translateY(-100%);
+}
+.tab li a .text
+{
+    position: relative;
+    height: 20px; /* 限制文本高度 */
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.tab li a .text span 
+{
+    display: block;
+    position: relative;
+    color: #222;
+    font-size: 1em;
+    line-height: 20px;
+    transition: 0.5s;
+}
+/* ::before(插入伪元素)和data-text属性配合使用，实现文字的渐变效果 */
+.tab li a .text span:before /* 插入到span之前 */
+{
+    content: attr(data-text); /* 获取data-text属性的值 */
+    position: absolute; 
+    top: 100%;  /* 相较于最近的position:relative元素定位，这使得当前元素紧贴着父元素的下面 */ 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    color: #2196f3
+}
+.tab li a:hover .text span 
+{   
+    transform: translateY(-20px);
+}
+/* responsive design */
+@media (max-width: 768px) 
+{
+    .tab
+    {
+        flex-direction: column; /* 改变子元素的排列方式 */
+        padding: 20px 30px;
+       width: 300px; /* 限制手机等小屏幕宽度 */
+    }
+    .tab li a
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; /* 元素之间的间距 */
+        padding: 20px 0; 
+    }
+    .tab li:not(:last-child)
+    {
+        border-right: none; /* 去掉分隔线 */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* 添加底边框 */
+    }
+    .tab li a .icon
+    {
+        margin: 0 auto; /* 图标居中显示 */ 
+    }
+    .tab li a .text
+    {
+        text-align: start; /* 文字左对齐 */
+    }
+}

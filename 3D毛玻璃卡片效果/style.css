@@ -1,0 +1,92 @@
+/* 导入 Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* 全局样式设置 */
+* {
+    margin: 0;  /* 外边距 */
+    padding: 0; /* 内边距 */
+    box-sizing: border-box; /* 决定元素宽高是否包含padding和border，相当于将内边距和边框宽度全部包含进宽中 */
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    min-height: 100vh; /* 视口高度，100%总是填满整个浏览器窗口 */
+    background: linear-gradient(#63120f,#5b1716); /* 渐变（默认从上到下） */
+}
+.container
+{
+    position: relative; /* 相对定位不会改变元素默认位置，通过top，left调整，相当于参照物，其他标签设置属性时参考的标准 */
+    display: flex; /* 设为容器 */
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; /* 允许flexbox子元素在容器宽度不够时换行，应用于响应式布局 */
+    width: 100%;
+    transform-style: preserve-3d; /* 创建3D效果 */
+}
+.container .box
+{
+    position: relative; /* 多层级定位上下文 */
+    width: 300px;
+    height: 400px;
+    margin: 40px;
+    background: rgba(255, 255, 255, 0.1); /* 最后一个参数代表10%的透明度，适用于半透明玻璃效果或卡片效果 */
+    border-radius: 20px; /* 圆角 */
+    transform-style: preserve-3d;
+}
+.container .box .name
+{
+    position: absolute;
+    top: 0;
+    left: 0; /* top和left 定位左上角 */
+    text-align: center;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform: translate3d(0,0,75px); /* X,Y,Z轴进行3D平移 */
+    color: #fff;
+    opacity: 0; /* 透明度 */
+    z-index: 10; /* 层级顺序 */
+    transition: 0.5s; /* 设置属性变化过渡时间 */
+}
+.container .box:hover .name
+{
+    top: 25px;
+    opacity: 1;
+}
+.container .box .buy
+{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-style: preserve-3d;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px); /* 应用5px的模糊效果 */
+    padding: 20px 25px;
+    border-radius: 30px;
+    text-decoration: none; /* 去除文本下划线，用于链接 */
+    transition: 0.5s;
+    transform: translate3d(-50%,0,80px);
+    width: 150px;
+    font-weight: 600; /* 字体粗细 */
+    text-align: center; 
+    z-index: 10;
+}
+.container .box .product
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate3d(-50%,-50%,0); /* 50%会将当前元素的左上角放置在父元素中心，所以-50%将当前元素往左偏移元素宽度的一半，高也同理 */
+    max-width: 300px;
+    transition: 0.5s;
+    
+}
+.container .box:hover .product
+{
+    transform: translate3d(-50%,-50%,100px);
+}

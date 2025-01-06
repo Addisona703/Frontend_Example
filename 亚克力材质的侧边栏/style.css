@@ -1,0 +1,181 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none; /* 移除列表默认的标记 */
+    box-sizing: border-box;
+}
+body
+{
+    height: 100vh;
+    background: linear-gradient(
+        #9fc0cf,
+        #e5edf1
+    ); /* 设置渐变背景 */
+    font-family: 'roboto', sans-serif;
+}
+.container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('./assets/background.png');
+    background-repeat: no-repeat; /* 防止背景图片重复显示 */
+    background-position: bottom; /* 图片底部与容器底部对齐 */
+    background-size: cover; /* 自动调整图片大小覆盖整个容器 */
+    /* background-size: 500px; */
+}
+.container nav
+{
+    width: 100px;
+    height: min-content; /* 根据内容调整高度 */
+    padding: 16px; 
+    border-radius: 12px;
+    backdrop-filter: blur(18px); /* 为元素添加背景模糊效果 */
+    background: rgba(230, 235, 240, .7); /* 最后一个参数为透明度 */
+    border: 2px solid rgba(230, 235, 240, .7); /* 设置边框使得在背景上更加明显 */
+    box-shadow: 0 0 30px rgba(0, 0, 0, .05); /* 添加阴影效果，使得元素更加立体 */
+    transition: .6s cubic-bezier(.8, .5, .5, .8); /* 设置过渡效果 */
+}
+.container nav:hover
+{
+    width: 320px;
+}
+nav .brand
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+nav .brand img
+{
+    width: 65px;
+    border-radius: 50%; /* 圆角等于宽度的一半，使得头像更加圆 */
+    border: 4px solid rgba(230, 235, 240, .8);
+}
+nav .brand p
+{
+    color: #505257;
+    font-weight: 500;
+    font-style: italic;
+    text-align: left;
+    line-height: 22px;
+    margin: 0 0 0 12px; /* 上右下左边距 */
+}
+nav .brand p span
+{
+    color: #3c3e43;
+    display: block;
+    font-size: 26px;
+    font-style: normal;
+}
+nav .line
+{
+    width: 100%;
+    height: 2px;
+    margin: 32px 0;
+    border-radius: 30%;
+    background: #87a3af;
+}
+nav .list
+{
+    width: 100%;
+}
+nav .list li
+{
+    display: flex;
+    margin: 12px 0;
+    padding: 20px;
+    cursor: pointer; /* 鼠标变成手指 */
+    border-radius: 8px;
+    transition: .4s ease-in-out; /* 过渡持续时间，缓动函数 */
+}
+nav .list li:hover
+{
+    background: rgba(236, 238, 240, 0.4);
+}
+nav .list li.active
+{
+    background: #3681f6;
+}
+nav .list li.active span
+{
+    color: #fff;
+}
+nav .list li.active i
+{
+    background: none;
+    -webkit-background-clip: unset; /* 取消背景图片的裁剪 */
+    -webkit-text-fill-color: unset; /* 取消文字颜色的填充 */
+    color: #e6ebf0; 
+}
+nav .list i
+{
+    font-size: 20px;
+    background: linear-gradient(
+        -135deg, /* 渐变角度 */
+        #838487,
+        #3c3e43
+    );
+    -webkit-background-clip: text; /* 将背景只显示在文字上 */
+    -webkit-text-fill-color: transparent; /* 文本颜色透明 */
+}
+nav .list span
+{
+    color: #505257;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 0 12px;
+}
+nav .brand p,
+nav .list span
+{
+    opacity: 0;
+    pointer-events: none;  /* 使得元素不可点击 */
+    transform: translateX(20px);
+}
+@keyframes fadeIn /* 定义动画，fadeIn是动画名称 */
+{
+    to { /* 关键帧 */
+        opacity: 1; 
+        pointer-events: unset;
+        transform: translateX(0);
+    }
+}
+
+nav:hover .brand p
+{
+    animation: fadeIn .4s ease-out forwards; /* forwards表示动画播放完毕保持动画结束的状态 */ 
+    animation-delay: .4s; /* 设置动画的延迟时间 */
+}
+nav:hover .list span
+{
+    animation: fadeIn .4s ease-out forwards;
+}
+nav:hover .list li:nth-child(1) span
+{
+    animation-delay: .5s;
+}
+nav:hover .list li:nth-child(2) span
+{
+    animation-delay: .6s;
+}
+nav:hover .list li:nth-child(3) span
+{
+    animation-delay: .7s;
+}
+nav:hover .list li:nth-child(4) span
+{
+    animation-delay: .8s;
+}
+nav:hover .list li:nth-child(5) span
+{
+    animation-delay: .9s;
+}
+nav:hover .list li:nth-child(7) span
+{
+    animation-delay: 1s;
+}

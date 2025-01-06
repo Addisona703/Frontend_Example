@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor In Out Ripple Effects</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <!-- <img src="./assets/nave-7741260_1280.webp" alt=""> -->
+        </div>
+        <div class="box">
+            <!-- <img src="./assets/salzburg-cathedral-7733624_960_720.jpg" alt=""> -->
+        </div>
+        <script>
+            let box = document.querySelectorAll('.box');
+            box.forEach(box => {
+                box.addEventListener('mousemove', function(e) {
+                let x = e.pageX - this.offsetLeft;
+                let y = e.pageY - this.offsetTop;
+
+                box.style.setProperty('--x', x + 'px');
+                box.style.setProperty('--y', y + 'px');
+                });
+            })
+        </script>
+    </div>
+</body>
+</html>

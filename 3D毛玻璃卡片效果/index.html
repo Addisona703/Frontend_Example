@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Christmas Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2 class="name">Christmas Tree</h2>
+            <a href="#" class="buy">Buy Now</a>
+            <img src="assets/christmas_tree.png" class="product">
+        </div>
+        <div class="box">
+            <h2 class="name">Christmas Gift</h2>
+            <a href="#" class="buy">Buy Now</a>
+            <img src="assets/chirstmas_gift.png" class="product">
+        </div>
+    </div>
+    <script src="../tools/js/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll(".box"), {
+		max: 25,
+		speed: 400,
+        glare: true,
+        "max-glare": 0.5
+	});
+    </script>
+</body>
+</html>
